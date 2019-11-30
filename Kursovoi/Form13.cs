@@ -27,7 +27,7 @@ namespace Kursovoi
             SqlConnection conn = new SqlConnection(Program.podkl);
             conn.Open();
 
-            string s = "select * from reiting order by mesto offset " + n.ToString() + "" +
+            string s = "select * from users order by id_user offset " + n.ToString() + "" +
                 "rows fetch next 10 rows only";
             SqlDataAdapter adap = new SqlDataAdapter(s, conn);
             DataSet ds = new DataSet();
@@ -92,8 +92,10 @@ namespace Kursovoi
         private void button3_Click(object sender, EventArgs e)
         {
             n = n - 10;
-            button2.Enabled = true;
-
+            if (n <= 0)
+            {
+                button3.Enabled = false;
+            }
             SqlConnection conn = new SqlConnection(Program.podkl);
             conn.Open();
 
@@ -105,11 +107,11 @@ namespace Kursovoi
             dataGridView1.DataSource = ds.Tables[0];
             if (ds.Tables[0].Rows.Count >= 10)
             {
-                button3.Enabled = true;
+                button2.Enabled = true;
             }
             else
             {
-                button3.Enabled = false;
+                button2.Enabled = false;
             }
             conn.Close();
         }

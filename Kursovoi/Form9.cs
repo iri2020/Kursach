@@ -101,10 +101,13 @@ namespace Kursovoi
         private void button2_Click(object sender, EventArgs e)
         {
             n = n - 10;
-            button1.Enabled = true;
-
+            if (n <= 0)
+            {
+                button2.Enabled = false;
+            }
             SqlConnection conn = new SqlConnection(Program.podkl);
             conn.Open();
+
 
             string s = "select * from reiting order by mesto offset " + n.ToString() + "" +
                 "rows fetch next 10 rows only";
@@ -114,11 +117,11 @@ namespace Kursovoi
             dataGridView1.DataSource = ds.Tables[0];
             if (ds.Tables[0].Rows.Count >= 10)
             {
-                button2.Enabled = true;
+                button1.Enabled = true;
             }
             else
             {
-                button2.Enabled = false;
+                button1.Enabled = false;
             }
             conn.Close();
         }

@@ -9,10 +9,11 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reitingTableAdapter" GeneratorDataComponentClassName="reitingTableAdapter" Name="reiting" UserDataComponentName="reitingTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="IgraConnectionString (Settings)" DbObjectName="Igra.dbo.reiting" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="IgraConnectionString (Settings)" DbObjectName="Igra.dbo.reiting" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT mesto FROM dbo.reiting</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT mesto FROM dbo.reiting
+group by mesto</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -31,7 +32,7 @@
   <xs:element name="IgraDataSet23" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="IgraDataSet23" msprop:Generator_UserDSName="IgraDataSet23">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="reiting" msprop:Generator_TableClassName="reitingDataTable" msprop:Generator_TableVarName="tablereiting" msprop:Generator_TablePropName="reiting" msprop:Generator_RowDeletingName="reitingRowDeleting" msprop:Generator_RowChangingName="reitingRowChanging" msprop:Generator_RowEvHandlerName="reitingRowChangeEventHandler" msprop:Generator_RowDeletedName="reitingRowDeleted" msprop:Generator_UserTableName="reiting" msprop:Generator_RowChangedName="reitingRowChanged" msprop:Generator_RowEvArgName="reitingRowChangeEvent" msprop:Generator_RowClassName="reitingRow">
+        <xs:element name="reiting" msprop:Generator_TableClassName="reitingDataTable" msprop:Generator_TableVarName="tablereiting" msprop:Generator_RowChangedName="reitingRowChanged" msprop:Generator_TablePropName="reiting" msprop:Generator_RowDeletingName="reitingRowDeleting" msprop:Generator_RowChangingName="reitingRowChanging" msprop:Generator_RowEvHandlerName="reitingRowChangeEventHandler" msprop:Generator_RowDeletedName="reitingRowDeleted" msprop:Generator_RowClassName="reitingRow" msprop:Generator_UserTableName="reiting" msprop:Generator_RowEvArgName="reitingRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="mesto" msprop:Generator_ColumnVarNameInTable="columnmesto" msprop:Generator_ColumnPropNameInRow="mesto" msprop:Generator_ColumnPropNameInTable="mestoColumn" msprop:Generator_UserColumnName="mesto" type="xs:int" />
